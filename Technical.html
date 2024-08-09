@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Technical Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Technical Documentation">
+    <link rel="stylesheet" type="text/css" href="Technical.css">
+  </head>
+  <body>
+    <nav id="navbar">
+<header>CSS Documentation</header>
+<a href="#what-is-css" class="nav-link">What is CSS</a>
+<a href="#getting-started-with-css" class="nav-link">Getting Started With CSS</a>
+<a href="#how-css-works" class="nav-link">How CSS Works</a>
+<a href="#css-selectors" class="nav-link">CSS Selectors</a>
+<a href="#combinators" class="nav-link">Combinators</a>
+<a href="#css-styling-text" class="nav-link">CSS Styling Text</a>
+<a href="#web-fonts" class="nav-link">WEB Fonts</a>
+    </nav>
+    <main id="main-doc">
+      <section class="main-section" id="what-is-css">
+        <header>What is CSS</header>
+        <article>
+            <p>CSS (Cascading Style Sheets) is used to style and lay out web pages — for example,
+            to alter the font, color, size, and spacing of your content, split it into multiple columns, 
+                 or add animations and other decorative features.</p>
+                 <p>This module provides a gentle beginning to your path towards CSS mastery with the basics of how it works,
+                     what the syntax looks like, and how you can start using it to add styling to HTML.</p>
+                     <ul>
+                       <span class="sub-head"> Requirements</span>
+                        <li>Basic familiarity with using computers and using the Web passively
+                             (i.e. looking at it, consuming the content.)</li>
+                        <li>A basic work environment set up, as detailed in Installing basic software,
+                             and an understanding of how to create and manage files, 
+                             as detailed in Dealing with files.</li>
+                        <li>Basic familiarity with HTML, as discussed in the Introduction to HTML module.</li>
+            
+                     </ul>
+        </article>
+      </section>
+      <section class="main-section" id="getting-started-with-css">
+        <header>Getting Started With CSS</header>
+        <article>
+            <p>The very first thing we need to do is to tell the HTML document that we have some CSS rules we want it to use.
+                 There are three different ways to apply CSS to an HTML document that you'll commonly come across, however, for now, 
+                 we will look at the most usual and useful way of doing so — linking CSS from the head of your document.</p>
+                <p>This <link> element tells the browser that we have a stylesheet, using the rel attribute,
+                     and the location of that stylesheet as the value of the href attribute. 
+                     You can test that the CSS works by adding a rule to styles.css. 
+                    Using your code editor, add the following to your CSS file:</p>
+                    <code>h1 {
+                        color: red;
+                      }</code>
+        </article>
+      </section>
+      <section class="main-section" id="how-css-works">
+        <header>How CSS Works</header>
+        <article>
+            <p>When a browser displays a document, it must combine the document's content with its style information. 
+                It processes the document in a number of stages, which we've listed below. 
+                Bear in mind that this is a very simplified version of what happens when a browser loads a webpage,
+                 and that different browsers will handle the process in different ways. But this is roughly what happens.</p>
+                 <ul>
+                    <li>The browser loads the HTML (e.g. receives it from the network).</li>
+                    <li>It converts the HTML into a DOM (Document Object Model). The DOM represents the document in the computer's memory.
+                         The DOM is explained in a bit more detail in the next section.</li>
+                    <li>The browser then fetches most of the resources that are linked to by the HTML document, 
+                        such as embedded images, videos, and even linked CSS!
+                         JavaScript is handled a bit later on in the process</li>
+                    <li>The browser parses the fetched CSS, and sorts the different rules by their selector types into different "buckets", e.g. element, class, ID, and so on.
+                         Based on the selectors it finds, it works out which rules should be applied to which nodes in the DOM,
+                         and attaches style to them as required (this intermediate step is called a render tree).</li>
+                 </ul>
+        </article>
+      </section>
+      <section class="main-section" id="css-selectors">
+        <header>CSS Selectors</header>
+        <article>
+        <p>A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell
+           the browser which HTML elements should be selected to have the
+           CSS property values inside the rule applied to them.
+           The element or elements which are selected by the selector are referred to as the subject of the selector.</p>
+           <p>If you have more than one thing which uses the same CSS then the individual selectors can be combined into a selector 
+            list so that the rule is applied to all of the individual selectors. For example,
+             if I have the same CSS for an h1 and also a class of .special, I could write this as two separate rules.</p>
+           <code>h1 {
+            color: blue;
+          }
+          
+          .special {
+            color: blue;
+          }</code>
+          <p>I could also combine these into a selector list, by adding a comma between them.
+          </p>
+          <code>h1, .special {
+            color: blue;
+          }</code>
+          </article>
+      </section>
+      <section class="main-section" id="combinators">
+        <header>Combinators</header>
+        <article>
+          <p>The final selectors we will look at are called combinators, because they combine other selectors in a 
+            way that gives them a useful relationship to each other and the location of content in the document.</p>
+            <p>The descendant combinator — typically represented by a single space (" ") character — combines two selectors 
+              such that elements matched by the second selector are selected if they have an ancestor (parent,
+               parent's parent, parent's parent's parent, etc.) element matching the first selector. 
+              Selectors that utilize a descendant combinator are called descendant selectors.</p>
+              <code>body article p</code>
+        </article>
+      </section>
+      <section class="main-section" id="css-styling-text">
+        <header>CSS Styling Text</header>
+        <article>
+          <p>Text inside an element is laid out inside the element's content box. It starts at the top left of the content
+             area (or the top right, in the case of RTL language content), and flows towards the end of the line.
+              Once it reaches the end, it goes down to the next line and flows to the end again.
+               This pattern repeats until all the content has been placed in the box. Text content effectively behaves
+                like a series of inline elements, being laid out on lines adjacent to one another, 
+                and not creating line breaks until the end of the line is reached,
+             or unless you force a line break manually using the <br> element.</p>
+             <p>The color property sets the color of the foreground content of the selected elements, which is usually the text,
+               but can also include a couple of other things,
+               such as an underline or overline placed on text using the text-decoration property.
+              color can accept any CSS color unit, for example:</p>
+              <code>p {
+                color: red;
+              }</code>
+        </article>
+      </section>
+      <section class="main-section" id="web-fonts">
+        <header>Web fonts</header>
+        <article>
+          <p>But there is an alternative that works very well. CSS allows you to specify font files, available on the web, 
+            to be downloaded along with your website as it's accessed.
+             This means that any browser supporting this CSS feature can display the fonts you've specifically chosen.
+              Amazing! The syntax required looks something like this:
+            First of all, you have a @font-face ruleset at the start of the CSS, which specifies the font file(s) to download:
+            css
+            </p>
+            <code>@font-face {
+              font-family: "myFont";
+              src: url("myFont.woff2");
+            }</code>
+            <p>You can use the Firefox Font Editor to investigate and manipulate the fonts in use on your page,
+               whether they are web fonts or not.
+            </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
